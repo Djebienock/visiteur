@@ -1,55 +1,62 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Découvrir Fès - CAN 2025</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
 </head>
 <body>
-  <header>
-    <h1>Bienvenue à Fès</h1>
-    <nav>
-      <a href="#attractions">Attractions</a>
-      <a href="#restaurants">Restaurants</a>
-      <a href="#infos">Infos pratiques</a>
-    </nav>
+
+  <header class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>Bienvenue à Fès 🇲🇦</h1>
+      <p>Capitale spirituelle et culturelle du Maroc</p>
+      <a href="#decouvrir" class="btn">Découvrir maintenant</a>
+    </div>
   </header>
 
-  <section id="attractions">
-    <h2>Sites touristiques incontournables</h2>
+  <section id="decouvrir" class="section">
+    <h2>🕌 Sites incontournables</h2>
     <div class="cards">
       <div class="card">
-        <img src="images/fes-medina.jpg" alt="Médina de Fès">
+        <img src="images/fes-medina.jpg" alt="Médina de Fès" />
         <h3>Médina de Fès</h3>
-        <p>Découvrez les ruelles anciennes et l’artisanat traditionnel marocain.</p>
+        <p>Un labyrinthe de ruelles et d’artisanat traditionnel unique au monde.</p>
       </div>
       <div class="card">
-        <img src="images/tanneries.jpg" alt="Tanneries Chouara">
+        <img src="images/tanneries.jpg" alt="Tanneries Chouara" />
         <h3>Tanneries Chouara</h3>
-        <p>Un spectacle unique des artisans du cuir, une tradition vieille de plusieurs siècles.</p>
+        <p>Découvrez le savoir-faire ancestral des artisans du cuir de Fès.</p>
+      </div>
+      <div class="card">
+        <img src="images/palais-royal.jpg" alt="Palais Royal" />
+        <h3>Palais Royal</h3>
+        <p>Un joyau architectural, symbole de la richesse historique du Maroc.</p>
       </div>
     </div>
   </section>
 
-  <section id="restaurants">
-    <h2>Restaurants et Cuisine Locale</h2>
-    <p>Dégustez les saveurs authentiques du Maroc : couscous, tajine, pastilla...</p>
+  <section id="cuisine" class="section dark">
+    <h2>🍽️ Cuisine Locale</h2>
+    <p>Fès est célèbre pour ses mets raffinés : couscous, tajine, pastilla et thé à la menthe.</p>
+    <img src="images/fes-food.jpg" alt="Cuisine de Fès" class="food-img" />
   </section>
 
-  <section id="infos">
-    <h2>Informations Pratiques</h2>
-    <ul>
-      <li>🚍 Transports : bus, taxi, location de voiture</li>
-      <li>🏨 Hébergements : hôtels, riads, auberges</li>
-      <li>📅 Événements : CAN 2025, festivals, expositions</li>
-    </ul>
+  <section id="carte" class="section">
+    <h2>🗺️ Carte interactive</h2>
+    <div id="map"></div>
   </section>
 
   <footer>
     <p>© 2025 Plateforme Touristique de Fès | Projet CAN 2025</p>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- Google Maps -->
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+  </script>
 </body>
 </html>
