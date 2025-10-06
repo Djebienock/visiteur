@@ -9,81 +9,177 @@
 </head>
 <body>
 
-  <header class="hero">
-    <div class="overlay"></div>
-    <div class="hero-content">
-      <h1>Bienvenue à Fès 🇲🇦</h1>
-      <p>Capitale spirituelle et culturelle du Maroc</p>
-      <a href="#decouvrir" class="btn">Découvrir maintenant</a>
+  <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-mosque"></i>
+                </div>
+                <span>Fès Tourisme</span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#attractions">Attractions</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#restaurants">Restaurants</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+
+
+
+
+    <!-- Hero Carousel Section -->
+<section class="hero" id="accueil">
+    <div class="carousel">
+        <div class="carousel-slide active">
+            <img src="images/fes-food.jpg" alt="Fès 1">
+        </div>
+        <div class="carousel-slide">
+            <img src="images/fes-medina.jpg" alt="Fès 2">
+        </div>
+        <div class="carousel-slide">
+            <img src="images/palais-royal.jpg" alt="Fès 3">
+        </div>
+        <div class="carousel-slide">
+            <img src="images/tanneries.jpg" alt="Fès 4">
+        </div>
+        
+        <div class="carousel-overlay">
+            <div class="hero-content">
+                <h1>Découvrez Fès</h1>
+                <p>Capitale Spirituelle et Culturelle du Maroc</p>
+                <a href="#attractions" class="btn">Explorer Maintenant</a>
+            </div>
+        </div>
+
+        <button class="carousel-arrow prev" onclick="changeSlide(-1)">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="carousel-arrow next" onclick="changeSlide(1)">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <div class="carousel-controls">
+            <span class="carousel-dot active" onclick="goToSlide(0)"></span>
+            <span class="carousel-dot" onclick="goToSlide(1)"></span>
+            <span class="carousel-dot" onclick="goToSlide(2)"></span>
+            <span class="carousel-dot" onclick="goToSlide(3)"></span>
+        </div>
     </div>
-  </header>
-
-  <section id="decouvrir" class="section">
-    <h2>🕌 Sites incontournables</h2>
-    <div class="cards">
-      <div class="card">
-        <img src="images/fes-medina.jpg" alt="Médina de Fès" />
-        <h3>Médina de Fès</h3>
-        <p>Un labyrinthe de ruelles et d’artisanat traditionnel unique au monde.</p>
-      </div>
-      <div class="card">
-        <img src="images/tanneries.jpg" alt="Tanneries Chouara" />
-        <h3>Tanneries Chouara</h3>
-        <p>Découvrez le savoir-faire ancestral des artisans du cuir de Fès.</p>
-      </div>
-      <div class="card">
-        <img src="images/palais-royal.jpg" alt="Palais Royal" />
-        <h3>Palais Royal</h3>
-        <p>Un joyau architectural, symbole de la richesse historique du Maroc.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="cuisine" class="section dark">
-    <h2>🍽️ Cuisine Locale</h2>
-    <p>Fès est célèbre pour ses mets raffinés : couscous, tajine, pastilla et thé à la menthe.</p>
-    <img src="images/fes-food.jpg" alt="Cuisine de Fès" class="food-img" />
-  </section>
-
-
-  <section id="carte" class="section">
-  <h2>🗺️ Carte interactive</h2>
-  <div id="map"></div>
 </section>
 
-<!-- Lien vers la bibliothèque Leaflet (pour OpenStreetMap) -->
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/leaflet/dist/leaflet.css"
-/>
-<script
-  src="https://unpkg.com/leaflet/dist/leaflet.js">
-</script>
-
-<script>
-  // Création de la carte centrée sur Fès
-  const map = L.map('map').setView([34.0331, -5.0003], 13);
-
-  // Ajout de la couche OpenStreetMap
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>'
-  }).addTo(map);
-
-  // Ajout d’un marqueur sur Fès
-  L.marker([34.0331, -5.0003])
-    .addTo(map)
-    .bindPopup('Bienvenue à Fès 🇲🇦<br>Capitale spirituelle du Maroc')
-    .openPopup();
-</script>
 
 
 
-  <footer>
-    <p>© 2025 Plateforme Touristique de Fès | Projet CAN 2025</p>
-  </footer>
 
-  <!-- Google Maps -->
+
+
+    <!-- Attractions Section -->
+    <section id="attractions">
+        <h2 class="section-title">Attractions Touristiques</h2>
+        
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">Tout</button>
+            <button class="filter-btn" data-filter="monuments">Monuments</button>
+            <button class="filter-btn" data-filter="musees">Musées</button>
+            <button class="filter-btn" data-filter="loisirs">Loisirs</button>
+        </div>
+
+        <div class="attractions-grid" id="attractionsGrid">
+            <!-- Cards will be generated by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2 class="section-title">Nos Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-hotel"></i>
+                </div>
+                <h3>Hébergements</h3>
+                <p>Riads authentiques et hôtels confortables</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-map-marked-alt"></i>
+                </div>
+                <h3>Visites Guidées</h3>
+                <p>Découvrez Fès avec des guides locaux</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-car"></i>
+                </div>
+                <h3>Transport</h3>
+                <p>Solutions de déplacement adaptées</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <h3>Événements</h3>
+                <p>Festivals et manifestations culturelles</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Restaurants Section -->
+    <section id="restaurants">
+        <h2 class="section-title">Gastronomie de Fès</h2>
+        <div class="attractions-grid" id="restaurantsGrid">
+            <!-- Restaurant cards will be generated by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Contactez-nous</h2>
+        <div class="contact-container">
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Nom complet</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Envoyer</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h3>Fès Tourisme</h3>
+            <p>Votre guide complet pour découvrir la ville impériale de Fès</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>&copy; 2025 Fès Tourisme. Projet Management - CAN 2025</p>
+            <p style="font-size: 0.9rem; margin-top: 1rem;">
+                Équipe: Manar Ouberri, Mohamed Khalil, Chaymae Noughou, Dje Bi Trazie Enock
+            </p>
+        </div>
+    </footer>
+
   <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
   </script>
